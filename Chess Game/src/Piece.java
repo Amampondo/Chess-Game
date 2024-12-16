@@ -8,7 +8,9 @@ public class Piece {
     public Piece(boolean isWhite){
         _isWhite = isWhite ;
     }
-
+    public String getPicPath( ){
+        return picPath ;
+    }
     public String toString(){
         String a = "This is a " + ( _isWhite ? "white" : "black") + " piece" ;
         return a ;
