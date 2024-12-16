@@ -6,7 +6,7 @@ A chess game by Mase and Mpondo
 ## Board API
 | Method | Return | Explenation |
 |-|-|-|
-| Board(String Dimensions) |  Board |Constructor |
+| Board(String dimensions) |  Board |Constructor |
 |  insert(col , row)  ||  Inset a piece |
 |  remove(col , row)  | Piece  |  Remove a piece|
 |  move(int[] start , int[] end)  || Moves piece from start to end |
