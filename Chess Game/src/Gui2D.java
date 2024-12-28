@@ -67,9 +67,9 @@ public class Gui2D implements DrawListener {
         // pieces[row][col]
         Piece[][] pieces = board.getPieces() ;
         int row = 0 , col = 0 ;
-        for(Piece[] rowPieces : pieces){
+        for(Piece[] colPieces : pieces){
             col ++ ;
-            for(Piece piece : rowPieces){
+            for(Piece piece : colPieces){
                 row ++ ;
                 if(piece == null){
                     continue;
