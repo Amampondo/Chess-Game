@@ -4,6 +4,7 @@ public class Piece {
     boolean _isWhite;
     int[][] history ;
     String picPath ;
+    Board board ;
 
     public Piece(boolean isWhite){
         _isWhite = isWhite ;
@@ -27,7 +28,14 @@ public class Piece {
             history = h ;
         }
     }
+    // implement in child to validate moves
+    public void isMoveLegal(int[] start , int[] end ,Board b){
 
+    }
+    // implement select event handler :
+    public void selectPiece( ){
+
+    }
     public static void main(String[] args){
         int[] c = {1,3} ;
         Piece piece = new Piece(true) ;
