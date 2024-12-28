@@ -1,6 +1,18 @@
 import edu.princeton.cs.algs4.Picture;
-
+/*
+* Piece api :
+*   x,y
+*   isWhite
+*   history
+*   picPath
+*   board
+*
+*   setBoard( )
+*   isMoveLegal( )
+*   potentialMoves( )
+*/
 public class Piece {
+    int[] xy ;
     boolean _isWhite;
     int[][] history ;
     String picPath ;
@@ -18,6 +30,7 @@ public class Piece {
     }
 
     public void record( int[] cord){
+        xy = cord ;
         if(history != null){
             int[][] h = new int[history.length + 1][2];
             System.arraycopy(history, 0, h, 0, history.length);
@@ -29,12 +42,12 @@ public class Piece {
         }
     }
     // implement in child to validate moves
-    public void isMoveLegal(int[] start , int[] end ,Board b){
-
+    public boolean isMoveLegal(int[] start , int[] end ,Board b){
+        return true ;
     }
     // implement select event handler :
-    public void selectPiece( ){
-
+    public void setBoard(Board b ){
+        board = b ;
     }
     public static void main(String[] args){
         int[] c = {1,3} ;

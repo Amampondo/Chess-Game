@@ -8,31 +8,20 @@ import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
 import static java.lang.Math.*;
 
 public class Gui2D implements DrawListener {
-    Draw draw = new Draw();
-    final int scale = 10 ;
-    Board board ;
-    int[] selectedBlock = null ;
-    Piece selectedPiece = null;
+    private Draw draw = new Draw();
+    private final int scale = 10 ;
+    private Board board ;
+    private Selector selector ;
 
     public Gui2D(Board b){
         board = b ;
         draw.addListener(this);
+        selector = new Selector(board) ;
 
     }
     public void mousePressed(double pressedX , double pressedY){
 
-        int x = (int) floor(pressedX) , y = (int) floor(pressedY) ;
-        int[] start = selectedBlock ;
-        selectedBlock = new int[]{x,y};
-
-        if(selectedPiece == null){
-            selectedPiece = board.search(x,y) ;
-        }else{
-            board.move(start,selectedBlock);
-            selectedPiece = null ;
-            selectedBlock = null ;
-        }
-
+        selector.select(pressedX,pressedY);
         show();
 
     }
@@ -88,9 +77,9 @@ public class Gui2D implements DrawListener {
         draw.picture(5,5,"board.png",scale,scale);
     }
     private void drawSelection( ){
-        if(selectedBlock != null){
+        if(selector.selected( ) != null){
             draw.setPenColor(draw.GREEN);
-            draw.filledSquare(selectedBlock[0]+0.5,selectedBlock[1]+0.5,0.5);
+            draw.filledSquare(selector.selected( )[0]+0.5,selector.selected( )[1]+0.5,0.5);
         }
     }
     public void show( ){

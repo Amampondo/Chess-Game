@@ -34,7 +34,17 @@ public class Board {
         return pieces[x-1][y-1] ;
     }
     public void show( ){
+        initialize();
         gui.show();
+    }
+    private void initialize( ){
+        for(Piece[] rows : pieces){
+            for( Piece piece : rows){
+                if( piece != null){
+                    piece.setBoard(this);
+                }
+            }
+        }
     }
     public static void main(String[] args){
         Board board = new Board("2D") ;
